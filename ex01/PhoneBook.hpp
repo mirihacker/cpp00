@@ -6,27 +6,30 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:21:03 by smiranda          #+#    #+#             */
-/*   Updated: 2025/03/03 14:39:55 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/03/04 15:17:33 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-#include "Contact.hpp"
-#include <iomanip>
+# include "Contact.hpp"
 
 class PhoneBook
 {
-    private:
-        Contact contacts[8];
-        int index;
-    
     public:
-        PhoneBook();
-        void add();
-        void display_contacts();
-        void diplay_index(int index);
+        PhoneBook(void);
+        ~PhoneBook(void);
+        int addContact();
+        int searchContact(void) const;
+
+    private:
+        void displayPhonebook() const;
+        unsigned int getIndex(void) const;
+        static const unsigned int _maxContact = 8;
+        Contact _contacts[_maxContact];
+        unsigned int _contactNext;
+        unsigned int _index;
 };
 
 #endif
