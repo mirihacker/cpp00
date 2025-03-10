@@ -6,11 +6,11 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 15:55:47 by smiranda          #+#    #+#             */
-/*   Updated: 2025/03/10 14:43:33 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/03/10 15:06:47 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "../inc/PhoneBook.hpp"
 
 PhoneBook::PhoneBook() : _contactNext(0), _index(0) 
 {

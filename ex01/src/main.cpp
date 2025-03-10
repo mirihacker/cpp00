@@ -6,11 +6,11 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 16:12:58 by smiranda          #+#    #+#             */
-/*   Updated: 2025/03/10 11:26:33 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/03/10 15:06:33 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "../inc/PhoneBook.hpp"
 
 int main(void)
 {

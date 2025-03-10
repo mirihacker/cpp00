@@ -6,11 +6,11 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 15:55:31 by smiranda          #+#    #+#             */
-/*   Updated: 2025/03/10 14:02:36 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/03/10 15:06:23 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "../inc/Contact.hpp"
 
 Contact::Contact(void) : _fName(""), _lName(""), \
 _nickname(""), _phone(""), _secret("") 
