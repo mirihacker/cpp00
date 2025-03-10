@@ -6,7 +6,7 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 15:55:47 by smiranda          #+#    #+#             */
-/*   Updated: 2025/03/10 11:30:56 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/03/10 14:43:33 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,29 @@ PhoneBook::PhoneBook() : _contactNext(0), _index(0)
 PhoneBook::~PhoneBook(void) 
 {
     return ;
+}
+
+void PhoneBook::displayPhonebook(void) const
+{
+    unsigned int i = 0;
+    unsigned int count = 0;
+    
+    std::cout << "|" << std::right << std::setw(10) << "Index" << "|" \
+    << std::right << std::setw(10) << "First Name" << "|" \
+    << std::right << std::setw(10) << "Last Name" << "|" \
+    << std::right << std::setw(10) << "Nickname" << "|" << std::endl;
+    
+    if (_index >= 8)
+    count = 8;
+    else
+    count = _index;
+    while (i < count)
+    {
+        std::cout << "|";
+        std::cout <<std::right << std::setw(10) << i << "|";
+        _contacts[i].showSmallContact();
+        i++;
+    }
 }
 
 unsigned int PhoneBook::getIndex(void) const
@@ -45,9 +68,7 @@ unsigned int PhoneBook::getIndex(void) const
                 break;
             else
             {
-                if (_index == 1)
-                    std::cerr << "\033[1;31m0 is a valid index.\033[0m" <<std::endl;
-                else if (_index >= 8)
+                if (_index >= 8)
                     std::cerr << "\033[1;31mValid indexes are integers between 0 and 7.\033[0m" << std::endl;
                 else
                     std::cerr << "\033[1;31mCurrent contact indexes are integers between 0 and " \
@@ -58,33 +79,10 @@ unsigned int PhoneBook::getIndex(void) const
     return (i);
 }
 
-void PhoneBook::displayPhonebook(void) const
-{
-    unsigned int i = 0;
-    unsigned int count = 0;
-
-    std::cout << "|" << std::right << std::setw(10) << "Index" << "|" \
-    << std::right << std::setw(10) << "First Name" << "|" \
-    << std::right << std::setw(10) << "Last Name" << "|" \
-    << std::right << std::setw(10) << "Nickname" << "|" << std::endl;
-
-    if (_index >= 8)
-        count = 8;
-    else
-        count = _index;
-    while (i < count)
-    {
-        std::cout << "|";
-        std::cout <<std::right << std::setw(10) << i << "|";
-        _contacts[i].showSmallContact();
-        i++;
-    }
-}
-
 int PhoneBook::searchContact(void) const
 {
     int i;
-
+    
     if (_index == 0)
     {
         std::cout << "\033[1;37mPhoneBook is empty.\033[0m" << std::endl;
@@ -96,25 +94,37 @@ int PhoneBook::searchContact(void) const
     return (0);
 }
 
-static bool isValidString(std::string input)
+
+static void storeInput(e_Info info, std::string& input)
 {
-    if (input.empty())
+    switch (info)
     {
-        std::cerr << "\033[1;31mEmpty string.\033[0m" << std::endl;
-        return (false);
+        case FIRST_NAME:
+        std::cout << "Enter first name: ";
+        break;
+        case LAST_NAME:
+        std::cout << "Enter last name: ";
+        break;
+        case NICKNAME:
+        std::cout << "Enter nickname: ";
+        break;
+        case PHONE:
+        std::cout << "Enter phone number: ";
+        break;
+        case DARKEST_SECRET:
+        std::cout << "Enter darkest secret: ";
+        break;
+        case END:
+        break;
     }
-    return (true);
+    std::getline(std::cin >> std::ws, input);
+    return ;
 }
 
-static bool isValidPhone(std::string input)
+static bool validPhone(std::string input)
 {
     unsigned int i = 0;
 
-    if (input.empty())
-    {
-        std::cerr << "\033[1;31mEmpty phone number.\033[0m" << std::endl;
-        return (false);
-    }
     if (input[0] == '+')
         i = 1;
     while (i < input.length())
@@ -135,47 +145,21 @@ static bool isValidPhone(std::string input)
 static bool isValidInput(e_Info info, std::string input)
 {
     bool isValid;
-
+    
     if (std::cin.eof())
         exit(1);
     if (info == PHONE)
-        isValid = isValidPhone(input);
+        isValid = validPhone(input);
     else
-        isValid = isValidString(input);
+        isValid = true;
     return (isValid);
-}
-
-static void storeInput(e_Info info, std::string& input)
-{
-    switch (info)
-    {
-        case FIRST_NAME:
-            std::cout << "Enter first name: ";
-            break;
-        case LAST_NAME:
-            std::cout << "Enter last name: ";
-            break;
-        case NICKNAME:
-            std::cout << "Enter nickname: ";
-            break;
-        case PHONE:
-            std::cout << "Enter phone number: ";
-            break;
-        case DARKEST_SECRET:
-            std::cout << "Enter darkest secret: ";
-            break;
-        case END:
-            break;
-    }
-    std::getline(std::cin >> std::ws, input);
-    return ;
 }
 
 int PhoneBook::addContact()
 {
     Contact contact;
     std::string input;
-
+    
     for (e_Info info = FIRST_NAME; info < END; info = static_cast<e_Info>(info + 1))
     {
         storeInput(info, input);
