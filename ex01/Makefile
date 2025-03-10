@@ -6,7 +6,7 @@
 #    By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/10 11:14:47 by smiranda          #+#    #+#              #
-#    Updated: 2025/03/10 15:13:57 by smiranda         ###   ########.fr        #
+#    Updated: 2025/03/10 16:22:54 by smiranda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = phonebook
 SRC_DIR = ./src/
 INC_DIR = ./inc/
 SRCS = Contact.cpp PhoneBook.cpp main.cpp
-CC = clang++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
