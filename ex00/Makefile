@@ -6,7 +6,7 @@
 #    By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 17:36:56 by smiranda          #+#    #+#              #
-#    Updated: 2025/03/10 15:15:19 by smiranda         ###   ########.fr        #
+#    Updated: 2025/03/10 15:34:31 by smiranda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ OBJS = $(NEW_SRCS:.cpp=.o)
 
 all : $(NAME)
 $(NAME)	: $(OBJS)
-		@$(CC) $(CFLAGS) $^ -o $(NAME)
+		@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 		@echo '$(NAME) compiled!'
 
 clean	:
