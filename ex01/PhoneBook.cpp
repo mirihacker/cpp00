@@ -6,7 +6,7 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 15:55:47 by smiranda          #+#    #+#             */
-/*   Updated: 2025/03/10 11:09:50 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/03/10 11:30:56 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ unsigned int PhoneBook::getIndex(void) const
         if (std::cin.eof())
             exit(1);
         if (input.empty() || !std::isdigit(input[0]))
-            std::cerr << "Please feed a single digit number." << std::endl;
+            std::cerr << "\033[1;31mPlease feed a single digit number.\033[0m" << std::endl;
         else
         {
             i = std::stoi(input);
@@ -46,12 +46,12 @@ unsigned int PhoneBook::getIndex(void) const
             else
             {
                 if (_index == 1)
-                    std::cerr << "0 is a valid index." <<std::endl;
+                    std::cerr << "\033[1;31m0 is a valid index.\033[0m" <<std::endl;
                 else if (_index >= 8)
-                    std::cerr << "Valid indexes are integers between 0 and 7." << std::endl;
+                    std::cerr << "\033[1;31mValid indexes are integers between 0 and 7.\033[0m" << std::endl;
                 else
-                    std::cerr << "Current contact indexes are integers between 0 and " \
-                    << (count -1) << "." << std::endl;
+                    std::cerr << "\033[1;31mCurrent contact indexes are integers between 0 and " \
+                    << (count -1) << ".\033[0m" << std::endl;
             }
         }
     }
@@ -87,7 +87,7 @@ int PhoneBook::searchContact(void) const
 
     if (_index == 0)
     {
-        std::cout << "PhoneBook is empty." << std::endl;
+        std::cout << "\033[1;37mPhoneBook is empty.\033[0m" << std::endl;
         return (0);
     }
     displayPhonebook();
@@ -100,7 +100,7 @@ static bool isValidString(std::string input)
 {
     if (input.empty())
     {
-        std::cerr << "Empty string." << std::endl;
+        std::cerr << "\033[1;31mEmpty string.\033[0m" << std::endl;
         return (false);
     }
     return (true);
@@ -112,7 +112,7 @@ static bool isValidPhone(std::string input)
 
     if (input.empty())
     {
-        std::cerr << "Empty phone number." << std::endl;
+        std::cerr << "\033[1;31mEmpty phone number.\033[0m" << std::endl;
         return (false);
     }
     if (input[0] == '+')
@@ -123,7 +123,7 @@ static bool isValidPhone(std::string input)
         {
             if (input[i] != ' ' && input[i] != '-')
             {
-                std::cerr << "Invalid phone number." << std::endl;
+                std::cerr << "\033[1;31mInvalid phone number.\033[0m" << std::endl;
                 return (false);
             }
         }
@@ -186,5 +186,6 @@ int PhoneBook::addContact()
     _contacts[_contactNext] = contact;
     _index += 1;
     _contactNext = _index % _maxContact;
+    std::cout << "\033[1;32mContact added succesfully!\033[0m" << std::endl;
     return (0);
 }
