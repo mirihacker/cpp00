@@ -6,12 +6,12 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 15:07:32 by smiranda          #+#    #+#             */
-/*   Updated: 2025/03/04 15:31:43 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/03/10 11:03:42 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
-# define CONTACT_HPP
+#define CONTACT_HPP
 
 # include <string>
 # include <iostream>
