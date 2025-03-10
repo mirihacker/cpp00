@@ -6,7 +6,7 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:21:03 by smiranda          #+#    #+#             */
-/*   Updated: 2025/03/10 11:03:46 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/03/10 16:31:13 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define PHONEBOOK_HPP
 
 # include "Contact.hpp"
+# include <string>
+# include <iostream>
+# include <iomanip>
 
 class PhoneBook
 {
