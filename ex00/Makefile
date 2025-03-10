@@ -6,14 +6,14 @@
 #    By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 17:36:56 by smiranda          #+#    #+#              #
-#    Updated: 2025/03/10 15:34:31 by smiranda         ###   ########.fr        #
+#    Updated: 2025/03/10 16:23:12 by smiranda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = megaphone
 SRC_DIR = ./src/
 SRCS = megaphone.cpp
-CC = clang++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 NEW_SRCS = $(addprefix $(SRC_DIR), $(SRCS))
