@@ -6,7 +6,7 @@
 #    By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/10 11:14:47 by smiranda          #+#    #+#              #
-#    Updated: 2025/03/10 16:22:54 by smiranda         ###   ########.fr        #
+#    Updated: 2025/03/20 11:27:44 by smiranda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ all : $(NAME)
 $(NAME)	: $(OBJS)
 		@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 		@echo '$(NAME) compiled!'
+
+$(OBJS): $(NEW_SRCS)
 
 clean	:
 		@$(RM) $(OBJS)

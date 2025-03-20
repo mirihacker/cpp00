@@ -6,7 +6,7 @@
 #    By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 17:36:56 by smiranda          #+#    #+#              #
-#    Updated: 2025/03/10 16:23:12 by smiranda         ###   ########.fr        #
+#    Updated: 2025/03/20 11:27:33 by smiranda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRCS = megaphone.cpp
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
+
 NEW_SRCS = $(addprefix $(SRC_DIR), $(SRCS))
 OBJS = $(NEW_SRCS:.cpp=.o)
 
@@ -26,6 +27,8 @@ all : $(NAME)
 $(NAME)	: $(OBJS)
 		@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 		@echo '$(NAME) compiled!'
+		
+$(OBJS): $(NEW_SRCS)
 
 clean	:
 		@$(RM) $(OBJS)
